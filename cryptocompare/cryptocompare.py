@@ -28,14 +28,18 @@ CURR = 'EUR'
 LIMIT = 1440
 ###############################################################################
 
-def query_cryptocompare(url,errorCheck=True):
+def query_cryptocompare(url, errorCheck=True, quiet=True):
+    if (not quiet):
+        print('url = %s' % url)
     try:
         response = requests.get(url).json()
     except Exception as e:
-        print('Error getting coin information. %s' % str(e))
+        if (not quiet):
+            print('Error getting coin information. %s' % str(e))
         return None
     if errorCheck and (response.get('Response') == 'Error'):
-        print('[ERROR] %s' % response.get('Message'))
+        if (not quiet):
+            print('[ERROR] %s' % response.get('Message'))
         return None
     return response
 
@@ -74,8 +78,9 @@ def get_historical_price(coin, curr=CURR, timestamp=time.time(), exchange='CCCAG
 def get_historical_price_day(coin, curr=CURR, limit=LIMIT):
     return query_cryptocompare(URL_HIST_PRICE_DAY.format(coin, format_parameter(curr), limit))
 
-def get_historical_price_hour(coin, curr=CURR, limit=LIMIT):
-    return query_cryptocompare(URL_HIST_PRICE_HOUR.format(coin, format_parameter(curr), limit))
+def get_historical_price_hour(coin, curr=CURR, limit=LIMIT, exchange='CCCAGG', quiet=True):
+    url = URL_HIST_PRICE_HOUR.format(coin, format_parameter(curr), limit, format_parameter(exchange))
+    return query_cryptocompare(url, quiet=quiet)
 
 def get_historical_price_minute(coin, curr=CURR, limit=LIMIT):
     return query_cryptocompare(URL_HIST_PRICE_MINUTE.format(coin, format_parameter(curr), limit))

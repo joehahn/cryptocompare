@@ -8,9 +8,19 @@ coins = ['BTC', 'ETH', 'XMR', 'NEO']
 currencies = ['EUR', 'USD', 'GBP']
 limit = 500
 
+print('================== modified HIST PRICE HOUR ===============')
+print(cryptocompare.get_historical_price_hour(coins[0]))
+print(cryptocompare.get_historical_price_hour(coins[0], curr='USD'))
+print(cryptocompare.get_historical_price_hour(coins[1], curr=['EUR','USD','GBP'], quiet=False))
+print(cryptocompare.get_historical_price_hour(coins[1], curr=['EUR','USD','GBP'], quiet=True))
+print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=3))
+print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=3, exchange='Kraken', quiet=False))
+
 print('================== COIN LIST =====================')
-print(cryptocompare.get_coin_list())
-print(cryptocompare.get_coin_list(True))
+response, err = cryptocompare.get_coin_list()
+print(response)
+response, err = cryptocompare.get_coin_list(True)
+print(response)
 
 print('===================== PRICE ======================')
 print(cryptocompare.get_price(coins[0]))
