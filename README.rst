@@ -11,7 +11,7 @@ Installation
 
 .. code:: bash
    
-   sudo pip3 install cryptocompare
+   pip install git+https://github.com/joehahn/cryptocompare
 
 Usage
 *****
