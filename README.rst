@@ -1,6 +1,9 @@
 cryptocompare
 #############
 
+this was forked from https://github.com/lagerfeuer/cryptocompare
+and hacked so that several of the methods can generate results specific to an exchange
+
 Python3 Wrapper to query cryptocurrency prices (and more) using the CryptoCompare_ API.
 
 Installation
