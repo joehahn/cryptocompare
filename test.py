@@ -14,7 +14,7 @@ print(cryptocompare.get_historical_price_hour(coins[0], curr='USD'))
 print(cryptocompare.get_historical_price_hour(coins[1], curr=['EUR','USD','GBP'], quiet=False))
 print(cryptocompare.get_historical_price_hour(coins[1], curr=['EUR','USD','GBP'], quiet=True))
 print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2))
-print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, exchange='Kraken', quiet=False))
+print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, e='Kraken', quiet=False))
 
 print('================== COIN LIST =====================')
 response, err = cryptocompare.get_coin_list()
