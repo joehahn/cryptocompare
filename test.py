@@ -8,14 +8,19 @@ coins = ['BTC', 'ETH', 'XMR', 'NEO']
 currencies = ['EUR', 'USD', 'GBP']
 limit = 500
 
-print('================== modified HIST PRICE HOUR ===============')
+print('================== hacked HIST PRICE HOUR ===============')
 print(cryptocompare.get_historical_price_hour(coins[0]))
 print(cryptocompare.get_historical_price_hour(coins[0], curr='USD'))
 print(cryptocompare.get_historical_price_hour(coins[1], curr=['EUR','USD','GBP'], quiet=False))
 print(cryptocompare.get_historical_price_hour(coins[1], curr=['EUR','USD','GBP'], quiet=True))
-print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2))
+print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, quiet=False))
 print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, exchange='Coinbase', quiet=False))
-print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, exchange='Kraken', quiet=False))
+print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, exchange='Kraken', quiet=True))
+
+print('================== hacked PRICE DAY ================')
+print(cryptocompare.get_historical_price_day(coins[0]))
+print(cryptocompare.get_historical_price_day(coins[0], curr='USD'))
+print(cryptocompare.get_historical_price_day(coins[1], curr=['EUR','USD','GBP']))
 
 print('================== COIN LIST =====================')
 response, err = cryptocompare.get_coin_list()

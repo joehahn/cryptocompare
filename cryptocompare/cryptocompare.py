@@ -8,7 +8,7 @@ URL_PRICE = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms={}&tsyms={}
 URL_PRICE_MULTI = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms={}&tsyms={}'
 URL_PRICE_MULTI_FULL = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms={}&tsyms={}'
 URL_HIST_PRICE = 'https://min-api.cryptocompare.com/data/pricehistorical?fsym={}&tsyms={}&ts={}&e={}'
-URL_HIST_PRICE_DAY = 'https://min-api.cryptocompare.com/data/histoday?fsym={}&tsym={}&limit={}'
+URL_HIST_PRICE_DAY = 'https://min-api.cryptocompare.com/data/histoday?fsym={}&tsym={}&limit={}&e={}'
 URL_HIST_PRICE_HOUR = 'https://min-api.cryptocompare.com/data/histohour?fsym={}&tsym={}&limit={}&e={}'
 URL_HIST_PRICE_MINUTE = 'https://min-api.cryptocompare.com/data/histominute?fsym={}&tsym={}&limit={}'
 URL_AVG = 'https://min-api.cryptocompare.com/data/generateAvg?fsym={}&tsym={}&e={}'
@@ -75,8 +75,9 @@ def get_historical_price(coin, curr=CURR, timestamp=time.time(), exchange='CCCAG
     return query_cryptocompare(URL_HIST_PRICE.format(coin, format_parameter(curr),
         int(timestamp), format_parameter(exchange)))
 
-def get_historical_price_day(coin, curr=CURR, limit=LIMIT):
-    return query_cryptocompare(URL_HIST_PRICE_DAY.format(coin, format_parameter(curr), limit))
+def get_historical_price_day(coin, curr=CURR, limit=LIMIT, exchange='CCCAGG', quiet=True):
+    url = URL_HIST_PRICE_DAY.format(coin, format_parameter(curr), limit, format_parameter(exchange))
+    return query_cryptocompare(url, quiet=quiet)
 
 def get_historical_price_hour(coin, curr=CURR, limit=LIMIT, exchange='CCCAGG', quiet=True):
     url = URL_HIST_PRICE_HOUR.format(coin, format_parameter(curr), limit, format_parameter(exchange))
