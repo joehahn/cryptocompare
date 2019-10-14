@@ -2,7 +2,12 @@ cryptocompare
 #############
 
 this was forked from https://github.com/lagerfeuer/cryptocompare
-and hacked so that several of the methods can generate results specific to an exchange
+and hacked so that selected methods can generate results specific to an exchange.
+This hack is incomplete tho...I only hacked those methods that I actually use...
+
+you can also set quiet=False option to print the API URL (which was useful when debugging
+this hack) plus any error messages generate by that API. Or set quiet=True to never print
+anything and to return None on any errors
 
 Python3 Wrapper to query cryptocurrency prices (and more) using the CryptoCompare_ API.
 
