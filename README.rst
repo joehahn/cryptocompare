@@ -18,6 +18,8 @@ Installation
    
    pip install git+https://github.com/joehahn/cryptocompare
 
+The remainder of this README is from lagerfeuer and does not account for my hacks...
+
 Usage
 *****
 
