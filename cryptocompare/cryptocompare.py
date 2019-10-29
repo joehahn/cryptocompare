@@ -82,12 +82,6 @@ def get_historical_price_day(coin, curr=CURR, limit=LIMIT, exchange='CCCAGG', qu
 def get_historical_price_hour(coin, curr=CURR, limit=LIMIT, timestamp=time.time(), exchange='CCCAGG', quiet=True):
     if isinstance(timestamp, datetime.datetime):
         timestamp = time.mktime(timestamp.timetuple())
-    print ('coin=',coin)
-    print ('curr=',curr)
-    print ('limit=',limit)
-    print ('timestamp=',timestamp)
-    print ('exchange',exchange)
-    print ('quiet=',quiet)
     url = URL_HIST_PRICE_HOUR.format(coin, format_parameter(curr), limit, int(timestamp), format_parameter(exchange))
     return query_cryptocompare(url, quiet=quiet)
 

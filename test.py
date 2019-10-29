@@ -16,7 +16,7 @@ print(cryptocompare.get_historical_price_hour(coins[1], curr=['EUR','USD','GBP']
 print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, quiet=False))
 print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, exchange='Coinbase', quiet=False))
 print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=2, exchange='Kraken', quiet=True))
-print(cryptocompare.get_historical_price_day(coins[0], curr='USD', limit=5, timestamp=1572375600, exchange='Coinbase', quiet=False))
+print(cryptocompare.get_historical_price_hour(coins[0], curr='USD', limit=5, timestamp=1572375600, exchange='Coinbase', quiet=False))
 
 
 print('================== hacked PRICE DAY ================')
